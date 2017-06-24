@@ -2,10 +2,15 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 
+// http.createServer(function(req, res) {
+// 	res.writeHead(200, {'Content-Type': 'text/html'})
+// 	var params = url.parse(req.url, true).query;
+// 	console.log(params.name);
+// })
+
 var html = fs.readFileSync('../html/demo01.html');
-// console.log(html);
 http.createServer(function(req, res) {
-	res.writeHead(200, {'Content-Type': 'text/plain;charset=utf8'});
+	res.writeHead(200, {'Content-Type': 'text/html;charset=utf8'});
 
 	var params = url.parse(req.url, true).query;
 	if (params.username && params.password) {
